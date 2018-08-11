@@ -1,0 +1,13 @@
+<?php
+
+spl_autoload_register('autoInclude');
+//×Ô¶¯¼ÓÔØ
+function autoInclude($className)
+{
+    if(false == class_exists($className))
+    {
+        $arr = explode('\\', $className);
+        $fileName = end($arr);
+        include_once($fileName.'.php');
+    }
+}
