@@ -1,115 +1,121 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
- 
+
 class CommonPythonClass:
-#{#{{{
-   '²âÊÔPythonµÄ»ùÀà'
-   __secretCount = 0  # Ë½ÓĞ±äÁ¿
-   empCount = 0
+    # {#{{{
+    'æµ‹è¯•Pythonçš„åŸºç±»'
+    __secretCount = 0  # ç§æœ‰å˜é‡
+    empCount = 0
 
-    #¹¹Ôì·½·¨
-   #def __init__(self, runFuncName):
-   #    self.runFuncName = runFuncName 
+    # æ„é€ æ–¹æ³•
+    # def __init__(self, runFuncName):
+    #    self.runFuncName = runFuncName
 
-    #ÔËĞĞº¯Êı--Èë¿Ú
-   def run(self):
-       #self.testOne()
-       #self.testSomeCode()
+    # è¿è¡Œå‡½æ•°--å…¥å£
+    def run(self):
+        # self.testOne()
+        # self.testSomeCode()
 
-       #03 ²Ù×÷Êı¾İ¿â
-       self.testMysql()
+        # 03 æ“ä½œæ•°æ®åº“
+        self.testMysql()
 
-       #04 ²âÊÔimportµ¼Èë°ü
-       #self.testImport()
+        # 04 æµ‹è¯•importå¯¼å…¥åŒ…
+        # self.testImport()
 
-       #05 ²âÊÔpython×Ô´øµÄweb·şÎñÆ÷
-       #self.testPythonOwnWeb()
+        # 05 æµ‹è¯•pythonè‡ªå¸¦çš„webæœåŠ¡å™¨
+        # self.testPythonOwnWeb()
 
-       #06 ²âÊÔGUI
-       #self.testGUI()
+        # 06 æµ‹è¯•GUI
+        # self.testGUI()
 
-    #01 ²âÊÔ1
-   def testOne(self):
-       #¼æÈİ python 3.x
-       print("hello world")
+    # 01 æµ‹è¯•1
+    def testOne(self):
+        # å…¼å®¹ python 3.x
+        print("hello world")
 
-    #02 ²âÊÔ2
-   def testSomeCode(self):
-       strOne = 'hello'
-       print strOne * 2 #ÖØ¸´Êä³ö×Ö·û´®
+    # 02 æµ‹è¯•2
+    def testSomeCode(self):
+        strOne = 'hello'
+        print
+        strOne * 2  # é‡å¤è¾“å‡ºå­—ç¬¦ä¸²
 
-    #03 ²Ù×÷Êı¾İ¿â
-   def testMysql(self):
-   #{#{{{
-        #Òª±£Ö¤MySQL-PythonÒÑ¾­°²×°£¬macÏÂ°²×°£ºhttp://blog.csdn.net/u013107656/article/details/52245144
-        #LinuxÏÂ°²×°£¬ÏÂÔØ°²×°°ü£ºhttp://blog.csdn.net/wklken/article/details/7271019
-       import MySQLdb
+    # 03 æ“ä½œæ•°æ®åº“
+    def testMysql(self):
+        # {#{{{
+        # è¦ä¿è¯MySQL-Pythonå·²ç»å®‰è£…ï¼Œmacä¸‹å®‰è£…ï¼šhttp://blog.csdn.net/u013107656/article/details/52245144
+        # Linuxä¸‹å®‰è£…ï¼Œä¸‹è½½å®‰è£…åŒ…ï¼šhttp://blog.csdn.net/wklken/article/details/7271019
+        import MySQLdb
 
-       # ´ò¿ªÊı¾İ¿âÁ¬½Ó
-       db = MySQLdb.connect("localhost","root","111","test_avatar" )
+        # æ‰“å¼€æ•°æ®åº“è¿æ¥
+        db = MySQLdb.connect("localhost", "root", "111", "test_avatar")
 
-       # Ê¹ÓÃcursor()·½·¨»ñÈ¡²Ù×÷ÓÎ±ê 
-       cursor = db.cursor()
+        # ä½¿ç”¨cursor()æ–¹æ³•è·å–æ“ä½œæ¸¸æ ‡
+        cursor = db.cursor()
 
-       # Ê¹ÓÃexecute·½·¨Ö´ĞĞSQLÓï¾ä
-       #cursor.execute("SELECT VERSION()")
-       cursor.execute("select * from room limit 1")
+        # ä½¿ç”¨executeæ–¹æ³•æ‰§è¡ŒSQLè¯­å¥
+        # cursor.execute("SELECT VERSION()")
+        cursor.execute("select * from room limit 1")
 
-       # Ê¹ÓÃ fetchone() ·½·¨»ñÈ¡Ò»ÌõÊı¾İ
-       data = cursor.fetchone()
+        # ä½¿ç”¨ fetchone() æ–¹æ³•è·å–ä¸€æ¡æ•°æ®
+        data = cursor.fetchone()
 
-       #print "Database version : %s " % data
-       print  data
+        # print "Database version : %s " % data
+        print
+        data
 
-       # ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
-       db.close()
+        # å…³é—­æ•°æ®åº“è¿æ¥
+        db.close()
 
-   #}#}}}
+    # }#}}}
 
-   #04 ²âÊÔimport
-   def testImport(self):
-   #{#{{{
+    # 04 æµ‹è¯•import
+    def testImport(self):
+        # {#{{{
 
-        #µ¼Èë×Ô¶¨ÒåÄ£¿é£º http://blog.csdn.net/pwc1996/article/details/52577148
-        #import sys
-        #sys.path.append("your_path")
+        # å¯¼å…¥è‡ªå®šä¹‰æ¨¡å—ï¼š http://blog.csdn.net/pwc1996/article/details/52577148
+        # import sys
+        # sys.path.append("your_path")
         import demo
-        "´´½¨ Employee ÀàµÄµÚÒ»¸ö¶ÔÏó"
+        "åˆ›å»º Employee ç±»çš„ç¬¬ä¸€ä¸ªå¯¹è±¡"
         emp1 = demo.Employee("Zara", 2000)
         emp1.displayEmployee()
-        print "Total Employee %d" % demo.Employee.empCount
+        print
+        "Total Employee %d" % demo.Employee.empCount
 
-   #}#}}}
+    # }#}}}
 
-   #05 ²âÊÔpython×Ô´øµÄweb·şÎñÆ÷
-   def testPythonOwnWeb(self):
-   #{#{{{
-        #¿ÉÓÃµÄ  http://blog.csdn.net/tanghaiyu777/article/details/74315752
-        #TODO
-        print ('test Web');
-   #}#}}}
+    # 05 æµ‹è¯•pythonè‡ªå¸¦çš„webæœåŠ¡å™¨
+    def testPythonOwnWeb(self):
+        # {#{{{
+        # å¯ç”¨çš„  http://blog.csdn.net/tanghaiyu777/article/details/74315752
+        # TODO
+        print('test Web');
 
-   #06 ²âÊÔpython GUI -- ±£Ö¤×Ô¼ºµÄ»úÆ÷ÉÏÓĞGUI,±ÈÈçmac windows£¬linuxµÄÔÆÖ÷»úÉÏÊÇÃ»ÓĞGUI,ËùÒÔ¿´²»µ½Ğ§¹û
-   def testGUI(self):
-   #{#{{{
-        from Tkinter import *           # µ¼Èë Tkinter ¿â
-        root = Tk()                     # ´´½¨´°¿Ú¶ÔÏóµÄ±³¾°É«
-                                        # ´´½¨Á½¸öÁĞ±í
-        li     = ['C','python','php','html','SQL','java']
-        movie  = ['CSS','jQuery','Bootstrap']
-        listb  = Listbox(root)          #  ´´½¨Á½¸öÁĞ±í×é¼ş
+    # }#}}}
+
+    # 06 æµ‹è¯•python GUI -- ä¿è¯è‡ªå·±çš„æœºå™¨ä¸Šæœ‰GUI,æ¯”å¦‚mac windowsï¼Œlinuxçš„äº‘ä¸»æœºä¸Šæ˜¯æ²¡æœ‰GUI,æ‰€ä»¥çœ‹ä¸åˆ°æ•ˆæœ
+    def testGUI(self):
+        # {#{{{
+        from Tkinter import *  # å¯¼å…¥ Tkinter åº“
+        root = Tk()  # åˆ›å»ºçª—å£å¯¹è±¡çš„èƒŒæ™¯è‰²
+        # åˆ›å»ºä¸¤ä¸ªåˆ—è¡¨
+        li = ['C', 'python', 'php', 'html', 'SQL', 'java']
+        movie = ['CSS', 'jQuery', 'Bootstrap']
+        listb = Listbox(root)  # åˆ›å»ºä¸¤ä¸ªåˆ—è¡¨ç»„ä»¶
         listb2 = Listbox(root)
-        for item in li:                 # µÚÒ»¸öĞ¡²¿¼ş²åÈëÊı¾İ
-            listb.insert(0,item)
+        for item in li:  # ç¬¬ä¸€ä¸ªå°éƒ¨ä»¶æ’å…¥æ•°æ®
+            listb.insert(0, item)
 
-        for item in movie:              # µÚ¶ş¸öĞ¡²¿¼ş²åÈëÊı¾İ
-            listb2.insert(0,item)
+        for item in movie:  # ç¬¬äºŒä¸ªå°éƒ¨ä»¶æ’å…¥æ•°æ®
+            listb2.insert(0, item)
 
-        listb.pack()                    # ½«Ğ¡²¿¼ş·ÅÖÃµ½Ö÷´°¿ÚÖĞ
+        listb.pack()  # å°†å°éƒ¨ä»¶æ”¾ç½®åˆ°ä¸»çª—å£ä¸­
         listb2.pack()
-        root.mainloop()                 # ½øÈëÏûÏ¢Ñ­»·
-   #}#}}}
-#}#}}}
+        root.mainloop()  # è¿›å…¥æ¶ˆæ¯å¾ªç¯
+    # }#}}}
+
+
+# }#}}}
 
 test = CommonPythonClass()
 test.run()
